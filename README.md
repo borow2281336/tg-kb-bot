@@ -25,28 +25,6 @@
 5) Демонстрация
 - Проверено на 2–3 документах (txt, обычный pdf, pdf-скан с OCR) — строки появляются в Sheets.
 
-## Запуск
-
-### Переменные окружения
-- `TG_TOKEN`
-- `HF_TOKEN`
-- `SHEET_URL`
-
-### Google Sheets
-- Создать Service Account → скачать `service.json`
-- Расшарить таблицу на `client_email` из `service.json` (Editor)
-
-### Docker (как запускал для “обособленной” работы)
-Контейнер держит бота постоянно запущенным (пока контейнер работает):
-```bash
-docker build -t tg-kb-bot .
-docker run --rm --env-file .env -v "$(pwd)/service.json:/app/service.json:ro" tg-kb-bot
-
-## Что сделано
-
-- Авто-переключение на OCR для “сканов” PDF
-
-- Стабильность summary (fallback при ошибках API)
 
 ## Идеи улучшений
 
@@ -55,4 +33,20 @@ docker run --rm --env-file .env -v "$(pwd)/service.json:/app/service.json:ro" tg
 - Улучшение summary/keywords для русского (модель/LLM)
 
 - Webhook деплой вместо polling
+
+## Что сделано
+
+- Авто-переключение на OCR для “сканов” PDF
+
+- Стабильность summary (fallback при ошибках API)
+
+### Docker (как запускал для “обособленной” работы)
+Контейнер держит бота постоянно запущенным (пока контейнер работает):
+```bash
+docker build -t tg-kb-bot .
+docker run --rm --env-file .env -v "$(pwd)/service.json:/app/service.json:ro" tg-kb-bot
+
+
+
+
 

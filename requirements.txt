@@ -1,0 +1,11 @@
+python-telegram-bot==21.6
+langdetect
+pypdf
+python-docx
+pytesseract
+pdf2image
+requests
+yake
+wordfreq
+gspread
+google-auth
